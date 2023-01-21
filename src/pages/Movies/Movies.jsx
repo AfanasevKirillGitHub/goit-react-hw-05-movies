@@ -1,18 +1,16 @@
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getSearchMovie } from 'services/movieAPI';
+import NoPoster from '../../images/NoPoster.png';
 
 export const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
-  // const [searchMovie, setSearchMovie] = useSearchParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchMovie = searchParams.get('query') ?? '';
-
-  // const [seachParams, setSearchParams] = useSearchParams();
-  // const parametr = seachParams.get('query') ?? '';
+  const location = useLocation();
 
   const handleSubmit = searchMovie => {
     setSearchParams(searchMovie !== '' ? { query: searchMovie } : {});
@@ -34,7 +32,6 @@ export const Movies = () => {
     }
   }, [searchMovie]);
 
-  // console.log(searchResults);
   return (
     <div>
       <SearchForm onSubmit={handleSubmit}></SearchForm>
@@ -42,10 +39,14 @@ export const Movies = () => {
         {searchResults.map(({ id, poster_path, title }) => {
           return (
             <li key={id}>
-              <Link to={`${id}`}>
+              <Link to={`${id}`} state={{ from: location }}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-                  alt=""
+                  src={
+                    poster_path
+                      ? `https://image.tmdb.org/t/p/w342${poster_path}`
+                      : NoPoster
+                  }
+                  alt={title}
                 />
                 <p>{title}</p>
               </Link>
