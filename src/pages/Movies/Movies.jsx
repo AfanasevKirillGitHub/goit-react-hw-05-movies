@@ -1,9 +1,16 @@
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { getSearchMovie } from 'services/movieAPI';
 import NoPoster from '../../images/NoPoster.png';
+import {
+  MovieImage,
+  MovieItem,
+  MovieLink,
+  MovieList,
+  Title,
+} from './Movies.styled';
 
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -35,12 +42,12 @@ const Movies = () => {
   return (
     <div>
       <SearchForm onSubmit={handleSubmit}></SearchForm>
-      <ul>
+      <MovieList>
         {searchResults.map(({ id, poster_path, title }) => {
           return (
-            <li key={id}>
-              <Link to={`${id}`} state={{ from: location }}>
-                <img
+            <MovieItem key={id}>
+              <MovieLink to={`${id}`} state={{ from: location }}>
+                <MovieImage
                   src={
                     poster_path
                       ? `https://image.tmdb.org/t/p/w342${poster_path}`
@@ -48,12 +55,12 @@ const Movies = () => {
                   }
                   alt={title}
                 />
-                <p>{title}</p>
-              </Link>
-            </li>
+                <Title>{title}</Title>
+              </MovieLink>
+            </MovieItem>
           );
         })}
-      </ul>
+      </MovieList>
     </div>
   );
 };
