@@ -1,12 +1,12 @@
-import { HeaderNavLink, LogoContainer, NavList } from './Header.styled';
+import { HeaderNavLink, NavList } from './Header.styled';
 import logo from '../../../images/logo.svg';
 
 export const Header = () => {
   return (
     <header>
-      <LogoContainer>
+      {/* <LogoContainer>
         <img src={logo} width="150" alt="" />
-      </LogoContainer>
+      </LogoContainer> */}
       <nav>
         <NavList>
           <li>

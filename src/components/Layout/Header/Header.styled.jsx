@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const LogoContainer = styled.div`
-  position: absolute;
-  top: 40px;
-  left: 40px;
-`;
+// export const LogoContainer = styled.div`
+//   position: absolute;
+//   top: 40px;
+//   left: 40px;
+// `;
 
 export const NavList = styled.ul`
   display: flex;
