@@ -5,7 +5,7 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getSearchMovie } from 'services/movieAPI';
 import NoPoster from '../../images/NoPoster.png';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -57,3 +57,5 @@ export const Movies = () => {
     </div>
   );
 };
+
+export default Movies;

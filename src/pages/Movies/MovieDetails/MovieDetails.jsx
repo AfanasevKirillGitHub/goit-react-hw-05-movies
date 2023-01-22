@@ -9,7 +9,7 @@ import {
 import { getMovieById } from 'services/movieAPI';
 import NoPoster from '../../../images/NoPoster.png';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
@@ -75,3 +75,5 @@ export const MovieDetails = () => {
     </>
   );
 };
+
+export default MovieDetails;

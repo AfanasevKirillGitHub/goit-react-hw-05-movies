@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getMovieByCredits } from 'services/movieAPI';
 import NoPhoto from '../../images/NoPhoto.jpg';
 
-export const Cast = () => {
+const Cast = () => {
   const [castDetails, setCastDetails] = useState(null);
   const { movieId } = useParams();
 
@@ -44,3 +44,4 @@ export const Cast = () => {
     </div>
   );
 };
+export default Cast;

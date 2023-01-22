@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { getTrending } from 'services/movieAPI';
+import {
+  MovieImage,
+  MovieItem,
+  MovieLink,
+  MovieList,
+  MovieTitle,
+  Title,
+} from './HomePage.styled';
 
 export const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -21,22 +28,22 @@ export const HomePage = () => {
 
   return (
     <div>
-      <h2>Trending movies today</h2>
-      <ul>
+      <Title>Trending movies today</Title>
+      <MovieList>
         {trendingMovies.map(({ id, title, poster_path }) => {
           return (
-            <li key={id}>
-              <Link to={`movies/${id}`}>
-                <img
+            <MovieItem key={id}>
+              <MovieLink to={`movies/${id}`}>
+                <MovieImage
                   src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
                   alt=""
                 />
-                <p>{title}</p>
-              </Link>
-            </li>
+                <MovieTitle>{title}</MovieTitle>
+              </MovieLink>
+            </MovieItem>
           );
         })}
-      </ul>
+      </MovieList>
     </div>
   );
 };
