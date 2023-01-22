@@ -1,5 +1,5 @@
 import { HeaderNavLink, NavList } from './Header.styled';
-import logo from '../../../images/logo.svg';
+// import logo from '../../../images/logo.svg';
 
 export const Header = () => {
   return (
