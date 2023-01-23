@@ -1,22 +1,22 @@
-import { HeaderNavLink, NavList } from './Header.styled';
-// import logo from '../../../images/logo.svg';
+import { HeaderNavLink, NavList, NavItem, HeaderWrapper, HeaderNav, LogoLink } from './Header.styled';
+import logo from '../../../images/logo.png';
 
 export const Header = () => {
   return (
-    <header>
-      {/* <LogoContainer>
-        <img src={logo} width="150" alt="" />
-      </LogoContainer> */}
-      <nav>
+    <HeaderWrapper>
+      <HeaderNav>
+        <LogoLink to="">
+          <img src={logo} width="70" alt="logo" />
+        </LogoLink>
         <NavList>
-          <li>
+          <NavItem>
             <HeaderNavLink to="">Home</HeaderNavLink>
-          </li>
-          <li>
+          </NavItem>
+          <NavItem>
             <HeaderNavLink to="movies">Movies</HeaderNavLink>
-          </li>
+          </NavItem>
         </NavList>
-      </nav>
-    </header>
+      </HeaderNav>
+    </HeaderWrapper>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getTrending } from 'services/movieAPI';
 import {
+  HomePageWrapper,
   MovieImage,
   MovieItem,
   MovieLink,
@@ -27,7 +28,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <HomePageWrapper maxWidth={1400} mx="auto">
       <Title>Trending movies today</Title>
       <MovieList>
         {trendingMovies.map(({ id, title, poster_path }) => {
@@ -44,6 +45,6 @@ export const HomePage = () => {
           );
         })}
       </MovieList>
-    </div>
+    </HomePageWrapper>
   );
 };

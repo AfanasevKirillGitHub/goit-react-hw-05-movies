@@ -9,6 +9,7 @@ import {
   MovieItem,
   MovieLink,
   MovieList,
+  MoviesWrapper,
   Title,
 } from './Movies.styled';
 
@@ -40,7 +41,7 @@ const Movies = () => {
   }, [searchMovie]);
 
   return (
-    <div>
+    <MoviesWrapper>
       <SearchForm onSubmit={handleSubmit}></SearchForm>
       <MovieList>
         {searchResults.map(({ id, poster_path, title }) => {
@@ -61,7 +62,7 @@ const Movies = () => {
           );
         })}
       </MovieList>
-    </div>
+    </MoviesWrapper>
   );
 };
 

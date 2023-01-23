@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+
+
+export const MoviesWrapper = styled.div`
+  padding: 50px 0;
+`
+
 export const Title = styled.h2`
   text-align: center;
 `;
