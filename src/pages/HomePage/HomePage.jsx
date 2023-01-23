@@ -1,7 +1,7 @@
+import Box from 'components/Box/Box';
 import { useEffect, useState } from 'react';
 import { getTrending } from 'services/movieAPI';
 import {
-  HomePageWrapper,
   MovieImage,
   MovieItem,
   MovieLink,
@@ -28,7 +28,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <HomePageWrapper maxWidth={1400} mx="auto">
+    <Box maxWidth={1400} py={40} mx="auto">
       <Title>Trending movies today</Title>
       <MovieList>
         {trendingMovies.map(({ id, title, poster_path }) => {
@@ -37,7 +37,7 @@ export const HomePage = () => {
               <MovieLink to={`movies/${id}`}>
                 <MovieImage
                   src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-                  alt=""
+                  alt={title}
                 />
                 <MovieTitle>{title}</MovieTitle>
               </MovieLink>
@@ -45,6 +45,6 @@ export const HomePage = () => {
           );
         })}
       </MovieList>
-    </HomePageWrapper>
+    </Box>
   );
 };

@@ -2,25 +2,27 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  gap: 25px;
-  /* width: 150px; */
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 30px;
+  }
 `;
 
 export const SubmitButton = styled.button`
+  align-items: center;
+  padding-top: 5px;
   cursor: pointer;
   position: relative;
-  width: 150px;
-  height: 37px;
+  width: 60px;
+  height: 30px;
   font-size: 20px;
-  line-height: 1.5;
-  padding: 2px 10px;
   color: white;
-  background: white;
   border: none;
-  border-radius: 15px;
-  background: linear-gradient(to right, #E13C52 50%, transparent 50%);
+  border-radius: 20px;
+  background: linear-gradient(to right, #e13c52 50%, transparent 50%);
   background-color: rgba(0, 0, 0, 1);
   background-size: 200% 100%;
   background-position: 100% 0;
@@ -28,15 +30,11 @@ export const SubmitButton = styled.button`
 
   :before {
     position: absolute;
-    font-size: 20px;
-    letter-spacing: 3px;
     justify-content: center;
     top: 2px;
     bottom: 2px;
     left: 2px;
     right: 2px;
-    display: block;
-    border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.3);
   }
   :active,
@@ -47,20 +45,30 @@ export const SubmitButton = styled.button`
     color: white;
     transition: all 0.5s ease;
   }
+  @media (min-width: 767px) {
+    height: 37px;
+    width: 80px;
+  }
 `;
 
 export const Input = styled.input`
-text-align: center;
+  text-align: center;
   padding: 5px 10px;
-  font-size: 20px;
+  font-size: 14px;
   margin-top: 0;
   outline: none;
   border-color: black;
   border-radius: 20px;
-  width: 250px;
+
+  width: 180px;
 
   :focus {
     outline: none;
-    border-color: #E13C52;
+    border-color: #e13c52;
+  }
+
+  @media (min-width: 767px) {
+    width: 250px;
+    font-size: 20px;
   }
 `;

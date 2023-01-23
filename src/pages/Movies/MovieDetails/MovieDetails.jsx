@@ -1,13 +1,16 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/movieAPI';
 import NoPoster from '../../../images/NoPoster.png';
+import { Title } from '../Movies.styled';
+import {
+  GoBackLink,
+  InfoWrapper,
+  MovieDetailsImage,
+  MovieDetailsWrapper,
+  SubTitle,
+  Text,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -35,9 +38,9 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={goBackHref.current}>Go back</Link>
-      <div>
-        <img
+      <GoBackLink to={goBackHref.current}>Go back</GoBackLink>
+      <MovieDetailsWrapper>
+        <MovieDetailsImage
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w342${poster_path}`
@@ -45,21 +48,21 @@ const MovieDetails = () => {
           }
           alt={title}
         />
-        <div>
-          <h2>
+        <InfoWrapper>
+          <Title>
             {title} ({release_date ? `${release_date.slice(0, 4)}` : 'no info'})
-          </h2>
-          <p>User Score {Math.round(vote_average * 10)}%</p>
-          <h3>Overview</h3>
-          <p>{overview}</p>
-          <h3>Genres</h3>
-          <p>
+          </Title>
+          <Text>User Score {Math.round(vote_average * 10)}%</Text>
+          <SubTitle>Overview</SubTitle>
+          <Text>{overview}</Text>
+          <SubTitle>Genres</SubTitle>
+          <Text>
             {genres.length > 0
               ? genres.map(({ name, id }) => <span key={id}> {name} </span>)
               : 'No information about genres'}
-          </p>
-        </div>
-      </div>
+          </Text>
+        </InfoWrapper>
+      </MovieDetailsWrapper>
       <div>
         <h2>Additional information</h2>
         <ul>

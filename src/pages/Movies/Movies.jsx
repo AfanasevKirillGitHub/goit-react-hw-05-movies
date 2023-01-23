@@ -10,7 +10,7 @@ import {
   MovieLink,
   MovieList,
   MoviesWrapper,
-  Title,
+  MovieTitle,
 } from './Movies.styled';
 
 const Movies = () => {
@@ -56,7 +56,7 @@ const Movies = () => {
                   }
                   alt={title}
                 />
-                <Title>{title}</Title>
+                <MovieTitle>{title}</MovieTitle>
               </MovieLink>
             </MovieItem>
           );

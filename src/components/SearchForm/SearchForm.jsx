@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { Input, SubmitButton, Form } from './SearchForm.styled';
-
+import { BsSearch } from 'react-icons/bs';
 export const SearchForm = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -37,7 +37,9 @@ export const SearchForm = ({ onSubmit }) => {
         placeholder="Please enter your request"
       />
 
-      <SubmitButton type="submit">Search</SubmitButton>
+      <SubmitButton type="submit">
+        <BsSearch />
+      </SubmitButton>
     </Form>
   );
 };

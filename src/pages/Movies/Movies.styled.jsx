@@ -1,20 +1,25 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
-
 export const MoviesWrapper = styled.div`
   padding: 50px 0;
-`
+`;
 
 export const Title = styled.h2`
   text-align: center;
-`;
+  margin: 0 0 20px 0;
+  color: #fff;
 
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+`;
 export const MovieList = styled.ul`
-  margin: 40px 0;
+  padding: 30px 0;
+  margin: 0;
   display: flex;
-  padding: 0;
   justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
@@ -24,6 +29,8 @@ export const MovieList = styled.ul`
 
 export const MovieItem = styled.li`
   background-color: #000;
+  width: 231px;
+  border-radius: 4px;
 
   :hover {
     transform: scale(1.02);
@@ -31,19 +38,21 @@ export const MovieItem = styled.li`
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
 `;
-
 export const MovieLink = styled(Link)`
   display: block;
   text-decoration: none;
   color: #fff;
 `;
-
 export const MovieImage = styled.img`
   display: block;
+  width: 231px;
+  border-radius: 4px 4px 0 0;
 `;
 
 export const MovieTitle = styled.p`
   margin: 0;
   padding: 10px 0 10px 0;
-  font-size: 18px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-size: 14px;
 `;
