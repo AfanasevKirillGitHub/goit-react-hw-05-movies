@@ -28,7 +28,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <Box maxWidth={1400} py={40} mx="auto">
+    <Box maxWidth={1400} py={140} mx="auto">
       <Title>Trending movies today</Title>
       <MovieList>
         {trendingMovies.map(({ id, title, poster_path }) => {

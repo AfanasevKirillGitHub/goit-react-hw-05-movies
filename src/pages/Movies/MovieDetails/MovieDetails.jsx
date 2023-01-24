@@ -1,15 +1,18 @@
+import Box from 'components/Box/Box';
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/movieAPI';
 import NoPoster from '../../../images/NoPoster.png';
-import { Title } from '../Movies.styled';
 import {
   GoBackLink,
+  InfoLink,
+  InfoList,
   InfoWrapper,
   MovieDetailsImage,
   MovieDetailsWrapper,
   SubTitle,
   Text,
+  TitleInfo,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -37,7 +40,7 @@ const MovieDetails = () => {
     movieDetails;
 
   return (
-    <>
+    <Box maxWidth={1400} py={100} mx="auto">
       <GoBackLink to={goBackHref.current}>Go back</GoBackLink>
       <MovieDetailsWrapper>
         <MovieDetailsImage
@@ -49,9 +52,9 @@ const MovieDetails = () => {
           alt={title}
         />
         <InfoWrapper>
-          <Title>
+          <TitleInfo>
             {title} ({release_date ? `${release_date.slice(0, 4)}` : 'no info'})
-          </Title>
+          </TitleInfo>
           <Text>User Score {Math.round(vote_average * 10)}%</Text>
           <SubTitle>Overview</SubTitle>
           <Text>{overview}</Text>
@@ -64,20 +67,20 @@ const MovieDetails = () => {
         </InfoWrapper>
       </MovieDetailsWrapper>
       <div>
-        <h2>Additional information</h2>
-        <ul>
+        <TitleInfo>Additional information</TitleInfo>
+        <InfoList>
           <li>
-            <NavLink to="cast">Cast</NavLink>
+            <InfoLink to="cast">Cast</InfoLink>
           </li>
           <li>
-            <NavLink to="reviews">Reviews</NavLink>
+            <InfoLink to="reviews">Reviews</InfoLink>
           </li>
-        </ul>
+        </InfoList>
       </div>
       <Suspense>
         <Outlet />
       </Suspense>
-    </>
+    </Box>
   );
 };
 

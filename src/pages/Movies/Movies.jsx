@@ -28,10 +28,13 @@ const Movies = () => {
     if (searchMovie !== '') {
       const fetchData = async () => {
         try {
-          const {
-            data: { results },
-          } = await getSearchMovie(searchMovie);
-          setSearchResults(results);
+          const { data } = await getSearchMovie(searchMovie);
+          setSearchResults(data.results);
+
+          // console.log(data.results);
+          // if (data.results.length === 0) {
+          //   toast.warn('Error');
+          // }
         } catch (error) {
           console.log(error);
         }

@@ -5,6 +5,9 @@ export const HeaderWrapper = styled.header`
   display: flex;
   gap: 40px;
   height: 100px;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
   background-color: black;
   margin: 0;
   padding: 0;
