@@ -6,7 +6,6 @@ import {
   MovieItem,
   MovieLink,
   MovieList,
-  MovieTitle,
   Title,
   TrendWrapper
 } from './HomePage.styled';
