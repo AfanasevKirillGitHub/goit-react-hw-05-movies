@@ -13,9 +13,9 @@ export const Title = styled.h2`
 `;
 
 export const MovieList = styled.ul`
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 `;
 
 export const MovieItem = styled.li`
@@ -24,7 +24,8 @@ export const MovieItem = styled.li`
   :hover {
     transform: scale(1.02);
     transition: all 0.25s ease-out;
-    box-shadow: 0 5px 20px rgb(255 60 82 / 25%), 0 10px 20px rgb(255 60 82 / 25%)
+    box-shadow: 0 5px 20px rgb(255 60 82 / 25%),
+      0 10px 20px rgb(255 60 82 / 25%);
   }
 `;
 
@@ -57,18 +58,49 @@ export const MovieImage = styled.img`
 //   `
 
 export const TrendWrapper = styled.div`
-padding-left: 12px;
-padding-right: 12px;
-padding-top: 140px;
-padding-bottom: 40px;
-margin: 0 auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 140px;
+  margin: 0 auto;
 
-@media (min-width: 768px) {
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  @media (min-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   @media (min-width: 1024px) {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-`
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+`;
+
+export const KidsWrapper = styled.div`
+  padding-left: 12px;
+  padding-right: 12px;
+  /* padding-bottom: 40px; */
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+`;
+
+export const TopRaredWrapper = styled.div`
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 40px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+`;

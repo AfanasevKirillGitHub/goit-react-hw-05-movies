@@ -58,4 +58,29 @@ export async function getMovieByReviews(id) {
   });
   return axios.get(`${API_URL}${params}?${options}`);
 }
+
+//  Popular Movies for kids cerrtification G and PG
 // ======================================================= //
+export async function getPopularForKids() {
+  const params = 'discover/movie';
+  const options = new URLSearchParams({
+    api_key: API_KEY,
+    language: 'en-US',
+    region: 'US',
+    certification_country: 'US',
+    include_adult: false,
+    include_video: true,
+  });
+  return axios.get(
+    `${API_URL}${params}?${options}&certification.lte=PG&certification.gte=G`
+  );
+}
+
+export async function getMovieByTopRated() {
+  const params = `/movie/top_rated`;
+  const options = new URLSearchParams({
+    api_key: API_KEY,
+    language: 'en-US',
+  });
+  return axios.get(`${API_URL}${params}?${options}`);
+}

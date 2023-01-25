@@ -30,11 +30,6 @@ const Movies = () => {
         try {
           const { data } = await getSearchMovie(searchMovie);
           setSearchResults(data.results);
-
-          // console.log(data.results);
-          // if (data.results.length === 0) {
-          //   toast.warn('Error');
-          // }
         } catch (error) {
           console.log(error);
         }
