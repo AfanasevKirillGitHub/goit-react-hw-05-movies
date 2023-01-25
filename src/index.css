@@ -14,3 +14,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.swiper {
+  height: 100%;
+  padding: 30px 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #e13d52;
+  background: #ffffff59;
+  padding: 5px;
+  transition: all 0.25s ease-out;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #ffffffb8;
+  transition: all 0.25s ease-out;
+}
