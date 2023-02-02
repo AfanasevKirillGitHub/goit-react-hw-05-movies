@@ -1,3 +1,4 @@
+import { Loader } from 'components/Loader/Loader';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -16,6 +17,7 @@ import {
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [status, setStatus] = useState("idle");
 
   const searchMovie = searchParams.get('query') ?? '';
   const location = useLocation();
@@ -24,24 +26,39 @@ const Movies = () => {
     setSearchParams(searchMovie !== '' ? { query: searchMovie } : {});
   };
 
+
   useEffect(() => {
+    setStatus("pending")
+
     if (searchMovie !== '') {
+
       const fetchData = async () => {
         try {
           const { data } = await getSearchMovie(searchMovie);
+
           setSearchResults(data.results);
+          setStatus("resolved")
+
         } catch (error) {
           console.log(error);
         }
       };
       fetchData(searchMovie);
     }
+
+    if (!searchMovie) {
+      setStatus("idle")
+    }
+
   }, [searchMovie]);
+
+
 
   return (
     <MoviesWrapper>
       <SearchForm onSubmit={handleSubmit}></SearchForm>
-      <MovieList>
+      {status === 'pending' && <Loader />}
+      {status === "resolved" && <MovieList>
         {searchResults.map(({ id, poster_path, title }) => {
           return (
             <MovieItem key={id}>
@@ -60,6 +77,7 @@ const Movies = () => {
           );
         })}
       </MovieList>
+      }
     </MoviesWrapper>
   );
 };
